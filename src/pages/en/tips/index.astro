@@ -1,9 +1,8 @@
 ---
 import AllTipsScreen from '@/features/tips/screens/AllTipsScreen.astro';
-import { type LanguageCode } from '@/i18n/ui';
 import { getCollection } from 'astro:content';
 
-const lang = (Astro.currentLocale as LanguageCode) ?? 'en';
+const lang = 'en';
 
 const allTips = await getCollection('tips', ({ data, id }) => {
   return data.isDraft !== true && id.startsWith('en/');

@@ -9,8 +9,7 @@ import {
 } from '@/features/projects';
 import { ui, defaultLanguage, type LanguageCode } from '@/i18n/ui';
 
-const lang =
-  (Astro.currentLocale as LanguageCode | undefined) ?? defaultLanguage;
+const lang = 'en';
 
 // Use blogPage for pageTitle/pageDescription
 const pageTitle = ui[lang].blogPage.pageTitle;

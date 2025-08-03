@@ -104,16 +104,6 @@ export const ui = {
       noProjects: 'No projects to display at the moment.',
       noProjectsDescription:
         "It seems that you don't have any projects to display at the moment.",
-      projects: {
-        vrpStrategy: {
-          title: "Volatility Risk Premium (VRP) Strategy [WIP]",
-          description: "Multi-asset options spread backtester using delta filters and macro trend signals.",
-        },
-        qrtDataChallenge: {
-          title: "QRT Data Challenge: Liquid Asset Reconstruction",
-          description: "XGBoost and LSTM ensemble to forecast missing prices using market microstructure features.",
-        },
-      },
     },
     notFoundPage: {
       pageTitle: 'Page Not Found',
@@ -152,7 +142,7 @@ export const ui = {
       title: 'Nicholas Hong',
       description:
         'Quant researcher & engineer building FX, vol, and macro trading systems',
-      rights: 'All rights reserved.',
+      rights: '© 2025 Nicholas Hong. All rights reserved.',
     },
     nav: {
       home: 'Home',
@@ -160,6 +150,119 @@ export const ui = {
       blog: 'Blog',
       tips: 'Tips',
       contact: 'Contact',
+    },
+    projectsContent: {
+      vrpStrategy: {
+        title: "Volatility Risk Premium (VRP) Strategy [WIP]",
+        description: "Multi-asset options spread backtester using delta filters and macro trend signals.",
+        imageAltText: 'Chart showcasing volatility capture from FX options',
+        categoryText: 'Quantitative Research',
+        dateText: 'June 2025',
+        detailedDescription: `A multi-market strategy capturing the volatility risk premium across Spot FX, Futures (6E, 6J), and Options on FX Futures using 20–10 delta bull/bear spreads. Entry is trend-filtered via the 200-day moving average, and coded in Python using historical data fetched from IBKR. Work-in-progress extensions include macro event triggers and multi-asset overlays (Gold, CHF, VIX).`,
+        keyFeatures: {
+          multiAssetBacktesting: {
+            title: 'Multi-Asset Backtesting',
+            description: 'Runs on Spot FX, Futures, and Options instruments with synchronized logic.'
+          },
+          optionsSpread20_10Delta: {
+            title: '20–10 Delta Option Spread',
+            description: 'Implements bull put and bear call spreads based on option delta slices.'
+          },
+          macroTrendFilter200DMA: {
+            title: '200-Day Trend Filter',
+            description: 'Determines bullish or bearish macro regime for strategy entry.'
+          },
+          volatilityRiskPremiumCapture: {
+            title: 'Volatility Risk Premium Alpha',
+            description: 'Harvests premium from option sellers by maintaining defined risk.'
+          },
+        },
+        galleryImages: {},
+        challenges: 'Building an event-driven backtester, aligning option chain dates, and integrating macro filters.',
+        learnings: 'Deepened understanding of derivatives greeks, macro-volatility interplay, and options structuring.',
+      },
+      qrtDataChallenge: {
+        title: 'QRT Data Challenge: Liquid Asset Reconstruction',
+        description: 'Data science competition solving time series reconstruction with ML and feature engineering.',
+        imageAltText: 'Liquid asset heatmap and reconstructed curves',
+        categoryText: 'Machine Learning / Quant Research',
+        dateText: 'August 2025',
+        detailedDescription: `Participating in QRT's financial data competition to reconstruct missing liquid asset performance. Currently applying XGBoost and LightGBM with temporal features, volatility regimes, and anomaly detection logic. Exploring CNN + MLP hybrid models and feature selection to optimize RMSE. Ongoing experiment tracking and pipeline tuning in Python.`,
+        keyFeatures: {
+          timeSeriesML: {
+            title: 'Time-Series Forecasting',
+            description: 'Applies temporal machine learning to reconstruct missing asset returns.'
+          },
+          featureEngineering: {
+            title: 'Feature Engineering',
+            description: 'Builds volatility clusters, lag windows, macro regimes for predictive power.'
+          },
+          ensembleModels: {
+            title: 'XGBoost & LightGBM',
+            description: 'Runs boosting trees with cross-validation to minimize error.'
+          },
+          hybridDeepLearning: {
+            title: 'CNN + MLP Prototype',
+            description: 'Experimental convolutional and dense neural net for signal refinement.'
+          },
+        },
+        galleryImages: {},
+        challenges: 'Tuning RMSE under data gaps, avoiding leakage, and aligning features to macro shifts.',
+        learnings: 'Improved financial ML modeling, validation discipline, and experiment management.',
+      },
+      embeddedAmplifier: {
+        title: 'Automatic Volume Control for Audio Amplifier',
+        description: 'Engineered and integrated a closed-loop audio amplifier using analog circuitry and real-time Python feedback.',
+        imageAltText: 'Block diagram of audio amplifier with microcontroller',
+        categoryText: 'Embedded Systems',
+        dateText: 'May 2025',
+        detailedDescription: `Designed and built a closed-loop audio amplifier system (THAT2180C VCA, LM380N PA, CA3140 VU Meter) on STM32 using MicroPython. Calibrated subsystem gains and offsets, characterized PA response from 100Hz to 50kHz, and implemented a control algorithm in Python with Jupyter+ipywidgets to maintain real-time loudness stability using RMS feedback. System reduces clipping and auto-adjusts volume.`,
+        keyFeatures: {
+          analogDigitalIntegration: {
+            title: 'Analog + Digital Integration',
+            description: 'Combined analog audio electronics with STM32 feedback loop using MicroPython.'
+          },
+          realTimeVolumeControl: {
+            title: 'Real-Time Volume Control',
+            description: 'Maintains consistent RMS output using step-up/down logic and VU feedback.'
+          },
+          frequencyResponseTuning: {
+            title: 'PA Frequency Characterization',
+            description: 'Measured and tuned amplifier response from 100Hz to 50kHz.'
+          },
+          autoClippingProtection: {
+            title: 'Clipping Protection',
+            description: 'System detects saturation and reduces gain to prevent distortion.'
+          },
+        },
+        galleryImages: {},
+        challenges: 'Tuning feedback loop timing, analog signal noise, and VU accuracy under dynamic load.',
+        learnings: 'Gained hands-on experience in embedded systems, control theory, audio electronics, and microcontroller firmware.',
+      },
+      ibkrPowerBIDashboard: {
+        title: '[Inactive] IBKR Power BI Dashboard',
+        description: '[To be resumed] Live portfolio tracker integrating Python, Supabase, and Power BI for FX and equities.',
+        imageAltText: 'IBKR dashboard preview',
+        categoryText: 'WIP / On Hold',
+        dateText: 'Paused',
+        detailedDescription: 'This project is paused. Intended to visualize live portfolio holdings and performance using IBKR API + Power BI with SQL integration.',
+        keyFeatures: {},
+        galleryImages: {},
+        challenges: '',
+        learnings: '',
+      },
+      autoApplyAgent: {
+        title: '[Inactive] AutoApply Agent',
+        description: '[To be resumed] AI agent that auto-fills internship/job applications using resume parsing and GPT.',
+        imageAltText: 'Agent UI preview',
+        categoryText: 'WIP / On Hold',
+        dateText: 'Paused',
+        detailedDescription: 'This project is paused. Goal was to create a browser automation + GPT-powered agent to select resumes, answer questions, and track application progress across portals like Workday and Greenhouse.',
+        keyFeatures: {},
+        galleryImages: {},
+        challenges: '',
+        learnings: '',
+      },
     },
   },
 } as const;

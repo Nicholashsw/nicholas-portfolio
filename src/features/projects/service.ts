@@ -9,36 +9,36 @@ import type {
 } from './type';
 
 const projectsListUnsorted: Array<ProjectData> = [
-  // {
-  //   id: 'vrpStrategy',
-  //   slug: 'vrp-strategy',
-  //   imageUrl: placeholderImage,
-  //   tags: ['FX', 'Options', 'Backtesting'],
-  //   category: 'Quantitative Research',
-  //   date: '2025-06-01',
-  //   keyFeatures: [
-  //     { id: 'multiAssetBacktesting' },
-  //     { id: 'optionsSpread20_10Delta' },
-  //     { id: 'macroTrendFilter200DMA' },
-  //     { id: 'volatilityRiskPremiumCapture' },
-  //   ],
-  //   galleryImages: [],
-  // },
-  // {
-  //   id: 'qrtDataChallenge',
-  //   slug: 'qrt-data-challenge',
-  //   imageUrl: placeholderImage,
-  //   tags: ['Machine Learning', 'XGBoost', 'Finance'],
-  //   category: 'Machine Learning / Quant Research',
-  //   date: '2025-08-01',
-  //   keyFeatures: [
-  //     { id: 'timeSeriesML' },
-  //     { id: 'featureEngineering' },
-  //     { id: 'ensembleModels' },
-  //     { id: 'hybridDeepLearning' },
-  //   ],
-  //   galleryImages: [],
-  // },
+  {
+    id: 'vrpStrategy',
+    slug: 'vrp-strategy',
+    imageUrl: placeholderImage,
+    tags: ['FX', 'Options', 'Backtesting'],
+    category: 'Quantitative Research',
+    date: '2025-06-01',
+    keyFeatures: [
+      { id: 'multiAssetBacktesting' },
+      { id: 'optionsSpread20_10Delta' },
+      { id: 'macroTrendFilter200DMA' },
+      { id: 'volatilityRiskPremiumCapture' },
+    ],
+    galleryImages: [],
+  },
+  {
+    id: 'qrtDataChallenge',
+    slug: 'qrt-data-challenge',
+    imageUrl: placeholderImage,
+    tags: ['Machine Learning', 'XGBoost', 'Finance'],
+    category: 'Machine Learning / Quant Research',
+    date: '2025-08-01',
+    keyFeatures: [
+      { id: 'timeSeriesML' },
+      { id: 'featureEngineering' },
+      { id: 'ensembleModels' },
+      { id: 'hybridDeepLearning' },
+    ],
+    galleryImages: [],
+  },
   {
     id: 'embeddedAmplifier',
     slug: 'embedded-amplifier',

@@ -8,8 +8,9 @@ import {
   type TranslatedProject,
 } from '@/features/projects';
 
-const lang = (Astro.currentLocale as LanguageCode | undefined) ?? defaultLanguage;
-const t = (key: keyof typeof ui[typeof lang]['homePage']) => ui[lang].homePage[key];
+// Set lang to 'en' and remove any logic for French/fr
+const lang = 'en';
+const t = (key: keyof typeof ui[typeof lang]['homePage']) => ui[lang]?.homePage?.[key] ?? '';
 
 const pageTitle = ui[lang]?.indexPage?.pageTitle ?? 'Home';
 const pageDescription = ui[lang]?.indexPage?.description ?? '';
