@@ -7,14 +7,14 @@ import {
   type TranslatedSkill,
   type TranslatedProject,
 } from '@/features/projects';
-import { defaultLanguage, useTranslations, type LanguageCode } from '@/i18n/ui';
+import { ui, defaultLanguage, type LanguageCode } from '@/i18n/ui';
 
 const lang =
   (Astro.currentLocale as LanguageCode | undefined) ?? defaultLanguage;
-const t = useTranslations(lang, 'homePage');
 
-const pageTitle = t('pageTitle');
-const pageDescription = t('pageDescription');
+// Use blogPage for pageTitle/pageDescription
+const pageTitle = ui[lang].blogPage.pageTitle;
+const pageDescription = ui[lang].blogPage.pageDescription;
 
 const projects: Array<TranslatedProject> = getTranslatedProjects(lang);
 const skills: Array<TranslatedSkill> = getTranslatedSkills(lang);
@@ -23,18 +23,18 @@ const layoutProps = {
   lang,
   projects,
   skills,
-  heroGreeting: t('heroGreeting'),
-  heroSubtitlePart1: t('heroSubtitlePart1'),
-  heroSubtitlePart2: t('heroSubtitlePart2'),
-  heroIntroduction: t('heroIntroduction'),
-  heroViewWorkButton: t('heroViewWorkButton'),
-  heroContactButton: t('heroContactButton'),
-  imageNotAvailable: t('imageNotAvailable'),
-  featuredProjectsTitle: t('featuredProjectsTitle'),
-  featuredProjectsDescription: t('featuredProjectsDescription'),
-  mySkillsTitle: t('mySkillsTitle'),
-  mySkillsDescription: t('mySkillsDescription'),
-  projectPreviewCtaText: t('projectCardViewProject'),
+  heroGreeting: ui[lang].homePage.heroGreeting,
+  heroSubtitlePart1: ui[lang].homePage.heroSubtitlePart1,
+  heroSubtitlePart2: ui[lang].homePage.heroSubtitlePart2,
+  heroIntroduction: ui[lang].homePage.heroIntroduction,
+  heroViewWorkButton: ui[lang].homePage.heroViewWorkButton,
+  heroContactButton: ui[lang].homePage.heroContactButton,
+  imageNotAvailable: ui[lang].homePage.imageNotAvailable,
+  featuredProjectsTitle: ui[lang].homePage.featuredProjectsTitle,
+  featuredProjectsDescription: ui[lang].homePage.featuredProjectsDescription,
+  mySkillsTitle: ui[lang].homePage.mySkillsTitle,
+  mySkillsDescription: ui[lang].homePage.mySkillsDescription,
+  projectPreviewCtaText: ui[lang].homePage.projectCardViewProject,
 };
 ---
 

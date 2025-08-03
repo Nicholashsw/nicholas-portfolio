@@ -15,15 +15,12 @@ if (currentLocale && currentLocale in languages) {
 const t = ui[lang] as (typeof ui)[typeof defaultLanguage];
 const projects = getTranslatedProjects(lang);
 
-const projectsPageTranslations = t.projectsPage;
-const metaTitle =
-  projectsPageTranslations?.metaTitle ??
-  projectsPageTranslations?.title ??
-  'Mes Projets';
-const metaDescription =
-  projectsPageTranslations?.metaDescription ?? 'Liste de tous mes projets.';
+// Fix: Ensure projectsPageTranslations is typed correctly
+const projectsPageTranslations = t.projectsPage as { title: string; metaTitle?: string; metaDescription?: string; noProjects?: string; noProjectsDescription?: string };
+const metaTitle = projectsPageTranslations.metaTitle ?? projectsPageTranslations.title ?? 'Mes Projets';
+const metaDescription = projectsPageTranslations.metaDescription ?? 'Liste de tous mes projets.';
 ---
 
 <BaseLayout pageTitle={metaTitle} pageDescription={metaDescription}>
-  <ProjectsScreen projects={projects} t={t} lang={lang} />
+  <ProjectsScreen projects={projects} lang={lang} />
 </BaseLayout>

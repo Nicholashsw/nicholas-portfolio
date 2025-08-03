@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import type { LanguageCode } from '@/i18n/ui';
-import { useTranslations } from '@/i18n/ui';
+import { ui } from '@/i18n/ui';
 import { formatDate } from '@/lib/utils';
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
@@ -22,7 +22,7 @@ interface Props {
 }
 
 const { post, lang } = Astro.props;
-const t = useTranslations(lang, 'blogPost');
+const t = ui[lang].blogPost;
 ---
 
 <a

@@ -1,6 +1,5 @@
----
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import { defaultLanguage, useTranslations, type LanguageCode } from '@/i18n/ui';
+---import BaseLayout from '@/layouts/BaseLayout.astro';
+import { ui, defaultLanguage, type LanguageCode } from '@/i18n/ui';
 import {
   PortfolioScreen,
   getTranslatedProjects,
@@ -9,12 +8,11 @@ import {
   type TranslatedProject,
 } from '@/features/projects';
 
-const lang =
-  (Astro.currentLocale as LanguageCode | undefined) ?? defaultLanguage;
-const t = useTranslations(lang, 'homePage');
+const lang = (Astro.currentLocale as LanguageCode | undefined) ?? defaultLanguage;
+const t = (key: keyof typeof ui[typeof lang]['homePage']) => ui[lang].homePage[key];
 
-const pageTitle = t('pageTitle');
-const pageDescription = t('pageDescription');
+const pageTitle = ui[lang]?.indexPage?.pageTitle ?? 'Home';
+const pageDescription = ui[lang]?.indexPage?.description ?? '';
 
 const projects: Array<TranslatedProject> = getTranslatedProjects(lang);
 const skills: Array<TranslatedSkill> = getTranslatedSkills(lang);

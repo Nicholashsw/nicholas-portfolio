@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { defaultLanguage, useTranslations, type LanguageCode } from '@/i18n/ui';
+import { ui, defaultLanguage, type LanguageCode } from '@/i18n/ui';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { Image } from 'astro:assets';
 import errorIllustration from '@/assets/error.png';
@@ -11,7 +11,7 @@ import { ArrowLeft } from 'lucide-react';
 
 const lang =
   (Astro.currentLocale as LanguageCode | undefined) ?? defaultLanguage;
-const t = useTranslations(lang, 'notFoundPage');
+const t = (key: keyof typeof ui[typeof lang]['notFoundPage']) => ui[lang]?.notFoundPage?.[key] ?? '';
 
 const pageTitle = t('pageTitle');
 const pageDescription = t('message');

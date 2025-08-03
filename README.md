@@ -124,6 +124,51 @@ All commands are run from the root of the project (using `bun` by default):
 └── package.json              # Project dependencies and scripts
 ```
 
+## 🐞 Troubleshooting
+
+### Cannot find module '~/config'
+
+If you see an error like:
+
+```
+Cannot find module '~/config' imported from 'src/i18n/ui.ts'
+```
+
+Make sure that:
+
+1. The file `config.ts` exists in your project root (it should be at `/config.ts`).
+2. Your project is set up to resolve the `~` alias to the project root.  
+   - For Vite, check your `vite.config.ts` for something like:
+     ```ts
+     import { defineConfig } from 'vite';
+     import path from 'path';
+
+     export default defineConfig({
+       resolve: {
+         alias: {
+           '~': path.resolve(__dirname, './'),
+         },
+       },
+     });
+     ```
+   - For TypeScript, ensure your `tsconfig.json` includes:
+     ```json
+     {
+       "compilerOptions": {
+         "baseUrl": ".",
+         "paths": {
+           "~/*": ["./*"]
+         }
+       }
+     }
+     ```
+
+If you need to create a minimal config file, add this to `/config.ts`:
+
+```ts
+export default {};
+```
+
 ## 👀 Want to learn more about Astro?
 
 Feel free to check out the [official Astro documentation](https://docs.astro.build) or join their [Discord server](https://astro.build/chat).

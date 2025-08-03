@@ -1,15 +1,13 @@
 ---
-import { defaultLanguage, useTranslations, type LanguageCode } from '@/i18n/ui';
+import { ui, defaultLanguage, type LanguageCode } from '@/i18n/ui';
 
-const lang =
-  (Astro.currentLocale as LanguageCode | undefined) ?? defaultLanguage;
-const tFooter = useTranslations(lang, 'footer');
-const tSite = useTranslations(lang, 'site');
+const lang = (Astro.currentLocale as LanguageCode | undefined) ?? defaultLanguage;
+const tSite = (key: 'title' | 'description' | 'rights') => (ui[lang] && ui[lang].site ? ui[lang].site[key] : key);
 ---
 
 <footer class="py-6 mt-auto text-center text-sm text-muted-foreground">
   <div class="container mx-auto px-4">
     &copy; {new Date().getFullYear()}
-    {tSite('title')}. {tFooter('rights')}
+    {tSite('title')}. {tSite('rights')}
   </div>
 </footer>

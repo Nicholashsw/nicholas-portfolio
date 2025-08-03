@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { defaultLanguage, useTranslations, type LanguageCode } from '@/i18n/ui';
+import { defaultLanguage, ui, type LanguageCode } from '@/i18n/ui';
 import Footer from '@/components/Footer.astro';
 import Header from '@/components/Header.astro';
 import BottomAppBar from '@/components/BottomAppBar.astro';
@@ -29,8 +29,9 @@ const lang =
   (Astro.currentLocale as LanguageCode | undefined) ?? defaultLanguage;
 const currentPathname = Astro.url.pathname;
 
-const tSite = useTranslations(lang, 'site');
-const tNav = useTranslations(lang, 'nav');
+// Fallback translation functions for site and nav
+const tSite = (key: 'title' | 'description') => (ui[lang] && ui[lang].site ? ui[lang].site[key] : key);
+const tNav = (key: 'home' | 'projects' | 'blog' | 'tips' | 'contact') => (ui[lang] && ui[lang].nav ? ui[lang].nav[key] : key);
 
 const navItems: Array<NavItem> = [
   { href: '/', label: tNav('home'), icon: Home },
