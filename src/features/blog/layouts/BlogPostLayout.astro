@@ -1,9 +1,9 @@
 ---
+import { useTranslations } from '@/i18n/ui';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import { formatDate } from 'date-fns/format';
-import { ui } from '@/i18n/ui';
 
 export type Props = {
   entry: CollectionEntry<'blog'>;
@@ -17,7 +17,7 @@ const GITHUB_BRANCH = 'YOUR_GITHUB_BRANCH';
 const editUrl = `https://github.com/${GITHUB_USER}/${GITHUB_REPO}/edit/${GITHUB_BRANCH}/src/content/blog/${entry.id}`;
 
 const lang = post.lang;
-const t = ui[lang].blogPost;
+const t = useTranslations(lang, 'blogPost');
 
 const { pubDate, updatedDate } = post;
 ---

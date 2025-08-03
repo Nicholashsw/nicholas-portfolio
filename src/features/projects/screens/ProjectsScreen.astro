@@ -1,5 +1,5 @@
 ---
-import { ui, type LanguageCode } from '@/i18n/ui';
+import type { LanguageCode, ui } from '@/i18n/ui';
 import SectionCard from '@/components/section-card.astro';
 import { EmptyState } from '@/components/empty-state';
 import Heading from '@/components/Heading.astro';
@@ -7,11 +7,12 @@ import type { TranslatedProject } from '../type';
 
 export type Props = {
   projects: Array<TranslatedProject>;
+  t: (typeof ui)[LanguageCode];
   lang: LanguageCode;
 };
 
-const { projects, lang } = Astro.props;
-const projectsPageTranslations = (ui as Record<string, any>)[lang].projectsPage;
+const { projects, t, lang } = Astro.props;
+const projectsPageTranslations = t.projectsPage; // For easier access
 ---
 
 <div class="py-12 md:py-16">

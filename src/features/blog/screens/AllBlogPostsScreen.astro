@@ -6,7 +6,7 @@ import {
 } from '@/features/blog/components/FilteredPostsList';
 import { BlogPostCard } from '@/features/blog';
 import type { LanguageCode } from '@/i18n/ui';
-import { ui } from '@/i18n/ui';
+import { useTranslations } from '@/i18n/ui';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { type CollectionEntry as AstroCollectionEntry } from 'astro:content';
 import { EmptyState } from '@/components/empty-state';
@@ -21,7 +21,7 @@ const { posts, lang } = Astro.props;
 const initialSearchQuery = Astro.url.searchParams.get('q') || '';
 const initialTag = Astro.url.searchParams.get('tag') || '';
 
-const texts = ui[lang].blogPage;
+const texts = useTranslations(lang, 'blogPage');
 
 // Helper function to transform BlogEntry to PostDataForFilter
 function transformPostForClientFilter(
@@ -47,7 +47,7 @@ const componentTexts = {
   noPostsFound: texts('noPostsFound'),
 };
 
-const t = ui[lang].blogPage;
+const t = useTranslations(lang, 'blogPage');
 
 const pageTitle = t('pageTitle');
 const pageDescription = t('pageDescription');

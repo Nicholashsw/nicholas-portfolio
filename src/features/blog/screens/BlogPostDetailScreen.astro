@@ -3,7 +3,7 @@
 import Heading from '@/components/Heading.astro';
 import { buttonVariants } from '@/components/ui/button';
 import type { LanguageCode } from '@/i18n/ui';
-import { ui } from '@/i18n/ui';
+import { useTranslations } from '@/i18n/ui';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { formatDate } from '@/lib/utils';
 import { Image } from 'astro:assets';
@@ -30,7 +30,7 @@ const editUrl = `https://github.com/${GITHUB_USER}/${GITHUB_REPO}/edit/${GITHUB_
 const pubDate = new Date(post.pubDate);
 const updatedDate = post.updatedDate ? new Date(post.updatedDate) : null;
 
-const t = ui[lang].blogPost;
+const t = useTranslations(lang, 'blogPost');
 
 const pageTitle = post.title;
 const pageDescription = post.description;

@@ -1,18 +1,305 @@
+export const languages: Record<'fr' | 'en', { name: string; flag: string }> = {
+  fr: { name: 'Français', flag: 'fr' },
+  en: { name: 'English', flag: 'us' },
+} as const;
+
+export const defaultLanguage = 'fr';
+
+export type LanguageCode = keyof typeof languages;
+
 export const ui = {
-  en: {
-    indexPage: {
-      pageTitle: 'Home',
-      description: 'Welcome to my portfolio.',
+  fr: {
+    projectsContent: {
+      sampleProject: {
+        title: 'Exemple de Projet',
+        description: "Ceci est un projet d'exemple pour le template.",
+        imageAltText: "Image placeholder pour le projet d'exemple",
+        categoryText: 'Application Web',
+        dateText: 'Janvier 2025',
+        detailedDescription:
+          "Une description plus détaillée de ce projet d'exemple, montrant comment structurer le contenu pour la page de détail du projet.",
+        keyFeatures: {
+          responsiveDesign: {
+            title: 'Design Adaptatif',
+            description: "Le projet s'adapte à toutes les tailles d'écran.",
+          },
+          contentManagement: {
+            title: 'Gestion de Contenu Facile',
+            description:
+              'Permet une gestion aisée du contenu via des fichiers Markdown ou un CMS.',
+          },
+        },
+        galleryImages: {
+          // sampleGalleryImage1: { // Si tu actives la galerie pour l'exemple
+          //   alt: "Texte alternatif pour l'image de galerie 1",
+          //   caption: "Légende pour l'image de galerie 1",
+          // },
+        },
+        challenges:
+          'Description des défis rencontrés lors de la création de ce projet exemple.',
+        learnings: 'Description des apprentissages tirés de ce projet exemple.',
+      },
+    },
+    skillsContent: {
+      frontendDevelopment: {
+        title: 'Développement Frontend',
+        description:
+          "Création d'interfaces utilisateur interactives et performantes.",
+      },
+      backendDevelopment: {
+        title: 'Développement Backend',
+        description: "Construction de logiques serveur robustes et d'API.",
+      },
+      uiUxDesign: {
+        title: 'Design UI/UX',
+        description:
+          "Conception d'expériences utilisateur intuitives et esthétiques.",
+      },
+      devOps: {
+        title: 'DevOps',
+        description:
+          'Automatisation des processus de développement et de déploiement.',
+      },
+    },
+    site: {
+      title: 'Mon Super Template',
+      description:
+        'Un template Astro moderne et performant pour démarrer votre projet.',
+    },
+    nav: {
+      home: 'Accueil',
+      blog: 'Blog',
+      contact: 'Contact',
+      projects: 'Projets',
+      tips: 'Astuces',
+    },
+    footer: {
+      rights: 'Tous droits réservés.',
     },
     homePage: {
-      heroGreeting: 'Hi, I’m Nicholas 👋',
-      heroSubtitlePart1: 'Quant researcher & engineer',
-      heroSubtitlePart2: 'building FX, vol, and macro trading systems',
-      heroIntroduction: 'Exploring the edges of alpha, one model at a time.',
+      pageTitle: 'Accueil |  Développeur FullStack',
+      pageDescription:
+        "Bienvenue sur le portfolio de YOUR_NAME, développeur FullStack passionné par la création d'expériences web innovantes.",
+      heroGreeting: "Salut, c'est YOUR_NAME",
+      heroSubtitlePart1: 'Développeur FullStack',
+      heroSubtitlePart2: 'Passionné UI/UX',
+      heroIntroduction: 'Ajouter une introduction ici.',
+      heroViewWorkButton: 'Mes réalisations',
+      heroContactButton: 'Me contacter',
+      heroImageAlt:
+        'Illustration représentant YOUR_NAME ou un concept de développement',
+      featuredProjectsTitle: '3 derniers projets',
+      featuredProjectsDescription:
+        "Voici quelques projets sur lesquels j'ai récemment travaillé. N'hésitez pas à les explorer !",
+      projectCardViewProject: 'Voir le projet',
+      projectCardViewCode: 'Voir le code',
+      imageNotAvailable: 'Image bientôt disponible',
+      mySkillsTitle: 'Mes Compétences',
+      mySkillsDescription:
+        "Explorez l'expertise et les capacités qui définissent mon travail et ma passion.",
+    },
+    blogPage: {
+      pageTitle: 'Mon Blog Technique',
+      pageDescription:
+        "Articles et réflexions sur le développement web, l'architecture logicielle, et les nouvelles technologies.",
+      title: 'Mon Blog Technique',
+      description:
+        "Articles et réflexions sur le développement web, l'architecture logicielle, et les nouvelles technologies.",
+      comingSoon:
+        'Les articles de blog apparaîtront ici bientôt. Revenez plus tard !',
+      heroImageAlt: "Image de couverture pour l'article : ",
+      publishedOn: 'Publié le : ',
+      readMore: 'Lire la suite',
+      readingTimeSuffix: 'min de lecture',
+      searchPlaceholder: 'Rechercher des articles...',
+      filterByTagButtonLabel: 'Filtrer par tag',
+      noTagFound: 'Aucun tag trouvé.',
+      selectTagCommandPlaceholder: 'Rechercher un tag...',
+      allTagsLabel: 'Tous les tags',
+      noPostsFound: 'Aucun article trouvé.',
+    },
+    blogPost: {
+      publishedOn: 'Publié le : ',
+      updatedOn: 'Mis à jour le : ',
+      heroImageAlt: "Image de couverture pour l'article : ",
+      backToList: 'Retour à la liste des articles',
+      readingTimeSuffix: 'min de lecture',
+      relatedPostsTitle: 'Je te recommande aussi :',
+      readMore: 'Lire la suite',
+      editOnGithub: 'Proposer une modification sur GitHub',
+    },
+    toc: {
+      title: "Sommaire de l'article",
+    },
+    contactPage: {
+      pageTitle: 'Me Contacter',
+      pageDescription:
+        "Discutons de ton projet, d'une collaboration potentielle, ou simplement pour échanger sur la tech !",
+      title: 'Me Contacter',
+      description:
+        "Discutons de ton projet, d'une collaboration potentielle, ou simplement pour échanger sur la tech !",
+
+      formTitle: 'Envoyer un message',
+      firstNameLabel: 'Prénom',
+      lastNameLabel: 'Nom',
+      emailLabel: 'Email',
+      messageLabel: 'Message',
+      sendButtonLabel: 'Envoyer',
+      firstNamePlaceholder: 'Ton prénom',
+
+      lastNamePlaceholder: 'Ton nom de famille',
+      emailPlaceholder: 'Ton adresse e-mail',
+      messagePlaceholder: 'Ton message ici...',
+      calendarTitle: 'Planifier un RDV',
+      calendarDescription:
+        'Tu préfères discuter de vive voix ? Réservez directement un créneau dans mon agenda.',
+      calendarButtonLabel: 'Voir mes disponibilités',
+      calendarLinkLabel: 'Voir mon agenda',
+      calendarPlaceHolder:
+        "L'intégration avec Google Calendar se fera bientôt...",
+      orSeparatorText: 'OU',
+      toastSuccessMessageSent: 'Message envoyé avec succès !',
+      toastErrorFailedToSend: "Échec de l'envoi du message.",
+      toastErrorUnexpected: "Une erreur inattendue s'est produite.",
+      toastErrorDetails: "Détails de l'erreur:",
+      toastErrorValidationFailed: 'Validation du formulaire échouée.',
+    },
+    projectDetailPage: {
+      backToProjects: 'Retour aux Projets',
+      categoryLabel: 'Catégorie :',
+      dateLabel: 'Date :',
+      aboutTitle: 'À propos de ce projet',
+      keyFeaturesTitle: 'Fonctionnalités Clés',
+      galleryTitle: 'Galerie',
+      challengesTitle: 'Défis Rencontrés',
+      learningsTitle: 'Leçons Apprises',
+      visitProjectButton: 'Visiter le Projet',
+      viewCodeButton: 'Voir le Code',
+    },
+    projectsPage: {
+      title: 'Mes Projets',
+      metaTitle: 'Mes Projets | Portfolio',
+      metaDescription: 'Découvrez tous les projets.',
+      noProjects: 'Aucun projet à afficher pour le moment.',
+      noProjectsDescription:
+        "Il semble que vous n'ayez pas encore de projets à afficher.",
+    },
+    notFoundPage: {
+      pageTitle: 'Page Non Trouvée',
+      title: 'Oups ! Page Non Trouvée',
+      message:
+        "Désolé, la page que vous recherchez ne semble pas exister. Vérifiez l'URL ou retournez à la page d'accueil.",
+      homeLink: "Retourner à l'Accueil",
+    },
+
+    tipsPage: {
+      metaTitle: 'Astuces de Développement',
+      metaDescription:
+        'Découvrez des astuces et conseils rapides sur le développement web et la cloud computing.',
+      description:
+        'Découvrez des astuces et conseils rapides sur le développement web et la cloud computing.',
+      title: 'Nos Dernières Astuces',
+      noTips: 'Aucune astuce à afficher pour le moment.',
+      readTip: "Lire l'astuce",
+      backToList: 'Retour à la liste des astuces',
+      featuredTips: 'Astuces recommandées',
+      allTips: 'Toutes les astuces',
+      tipsAvailable: 'astuces disponibles',
+      tipAvailable: 'astuce disponible',
+      editOnGithub: 'Modifier sur GitHub',
+    },
+    zodErrors: {
+      // Common errors
+      invalid_type: 'Type invalide.',
+      invalid_type_received_undefined: 'Ce champ est requis.', // For required fields (fallback)
+      required_field_custom: 'Le champ {fieldName} est requis.',
+      // String errors
+      too_small_string_minimum: 'Doit contenir au moins {minimum} caractères.',
+      too_big_string_maximum: 'Ne doit pas dépasser {maximum} caractères.',
+      invalid_string_email: 'Adresse e-mail invalide.',
+      invalid_string_url: 'URL invalide.',
+      invalid_string_uuid: 'UUID invalide.',
+      // You can add more specific messages as needed
+    },
+  },
+  en: {
+    projectsContent: {
+      sampleProject: {
+        title: 'Sample Project',
+        description: 'This is a sample project for the template.',
+        imageAltText: 'Placeholder image for the sample project',
+        categoryText: 'Web Application',
+        dateText: 'January 2025',
+        detailedDescription:
+          'A more detailed description of this sample project, showing how to structure content for the project detail page.',
+        keyFeatures: {
+          responsiveDesign: {
+            title: 'Responsive Design',
+            description: 'The project adapts to all screen sizes.',
+          },
+          contentManagement: {
+            title: 'Easy Content Management',
+            description:
+              'Allows for easy content management via Markdown files or a CMS.',
+          },
+        },
+        galleryImages: {
+          // sampleGalleryImage1: { // If you enable gallery for the example
+          //   alt: 'Alt text for gallery image 1',
+          //   caption: 'Caption for gallery image 1',
+          // },
+        },
+        challenges:
+          'Description of challenges encountered while creating this sample project.',
+        learnings: 'Description of learnings from this sample project.',
+      },
+    },
+    skillsContent: {
+      frontendDevelopment: {
+        title: 'Frontend Development',
+        description:
+          'Building interactive and high-performance user interfaces.',
+      },
+      backendDevelopment: {
+        title: 'Backend Development',
+        description: 'Constructing robust server logic and APIs.',
+      },
+      uiUxDesign: {
+        title: 'UI/UX Design',
+        description: 'Designing intuitive and aesthetic user experiences.',
+      },
+      devOps: {
+        title: 'DevOps',
+        description: 'Automating development and deployment processes.',
+      },
+    },
+    site: {
+      title: 'My Awesome Template',
+      description:
+        'A modern and performant Astro template to kickstart your project.',
+    },
+    nav: {
+      home: 'Home',
+      blog: 'Blog',
+      contact: 'Contact',
+      projects: 'Projects',
+      tips: 'Tips',
+    },
+    footer: {
+      rights: 'All rights reserved.',
+    },
+    homePage: {
+      pageTitle: 'Home | YOUR_NAME - FullStack Developer',
+      pageDescription:
+        'Welcome to the portfolio of YOUR_NAME, a FullStack developer passionate about creating innovative web experiences.',
+      heroGreeting: "Hi, I'm YOUR_NAME",
+      heroSubtitlePart1: 'Full Stack Developer',
+      heroSubtitlePart2: 'UI/UX Enthusiast',
+      heroIntroduction: 'Add an introduction here.',
       heroViewWorkButton: 'View My Work',
       heroContactButton: 'Get In Touch',
       heroImageAlt:
-        'Illustration representing Nicholas Hong or a development concept',
+        'Illustration representing YOUR_NAME or a development concept',
       featuredProjectsTitle: '3 latest projects',
       featuredProjectsDescription:
         "Here are some of the projects I've recently worked on. Feel free to explore!",
@@ -58,6 +345,7 @@ export const ui = {
       pageTitle: 'Contact Me',
       pageDescription:
         "Let's discuss your project, a potential collaboration, or just chat about tech!",
+
       title: 'Contact Me',
       description:
         "Let's discuss your project, a potential collaboration, or just chat about tech!",
@@ -99,8 +387,8 @@ export const ui = {
     },
     projectsPage: {
       title: 'My Projects',
-      metaTitle: "My Projects | Nicholas Hong's Portfolio",
-      metaDescription: "Discover all of Nicholas Hong's projects.",
+      metaTitle: "My Projects | YOUR_NAME's Portfolio",
+      metaDescription: "Discover all of YOUR_NAME's projects.",
       noProjects: 'No projects to display at the moment.',
       noProjectsDescription:
         "It seems that you don't have any projects to display at the moment.",
@@ -112,8 +400,9 @@ export const ui = {
         'Sorry, the page you are looking for does not seem to exist. Check the URL or return to the homepage.',
       homeLink: 'Return to Homepage',
     },
+
     tipsPage: {
-      metaTitle: 'Development Tips | Nicholas Hong',
+      metaTitle: 'Development Tips | YOUR_NAME',
       metaDescription:
         'Browse a collection of quick tips and advice on Web Development and Cloud Computing.',
       title: 'Latest Tips',
@@ -129,149 +418,47 @@ export const ui = {
       editOnGithub: 'Edit on GitHub',
     },
     zodErrors: {
+      // Common errors
       invalid_type: 'Invalid type.',
-      invalid_type_received_undefined: 'This field is required.',
+      invalid_type_received_undefined: 'This field is required.', // For required fields (fallback)
       required_field_custom: 'The {fieldName} field is required.',
+      // String errors
       too_small_string_minimum: 'Must be at least {minimum} characters long.',
       too_big_string_maximum: 'Must be no more than {maximum} characters long.',
       invalid_string_email: 'Invalid email address.',
       invalid_string_url: 'Invalid URL.',
       invalid_string_uuid: 'Invalid UUID.',
-    },
-    site: {
-      title: 'Nicholas Hong',
-      description:
-        'Quant researcher & engineer building FX, vol, and macro trading systems',
-      rights: '© 2025 Nicholas Hong. All rights reserved.',
-    },
-    nav: {
-      home: 'Home',
-      projects: 'Projects',
-      blog: 'Blog',
-      tips: 'Tips',
-      contact: 'Contact',
-    },
-    projectsContent: {
-      vrpStrategy: {
-        title: "Volatility Risk Premium (VRP) Strategy [WIP]",
-        description: "Multi-asset options spread backtester using delta filters and macro trend signals.",
-        imageAltText: 'Chart showcasing volatility capture from FX options',
-        categoryText: 'Quantitative Research',
-        dateText: 'June 2025',
-        detailedDescription: `A multi-market strategy capturing the volatility risk premium across Spot FX, Futures (6E, 6J), and Options on FX Futures using 20–10 delta bull/bear spreads. Entry is trend-filtered via the 200-day moving average, and coded in Python using historical data fetched from IBKR. Work-in-progress extensions include macro event triggers and multi-asset overlays (Gold, CHF, VIX).`,
-        keyFeatures: {
-          multiAssetBacktesting: {
-            title: 'Multi-Asset Backtesting',
-            description: 'Runs on Spot FX, Futures, and Options instruments with synchronized logic.'
-          },
-          optionsSpread20_10Delta: {
-            title: '20–10 Delta Option Spread',
-            description: 'Implements bull put and bear call spreads based on option delta slices.'
-          },
-          macroTrendFilter200DMA: {
-            title: '200-Day Trend Filter',
-            description: 'Determines bullish or bearish macro regime for strategy entry.'
-          },
-          volatilityRiskPremiumCapture: {
-            title: 'Volatility Risk Premium Alpha',
-            description: 'Harvests premium from option sellers by maintaining defined risk.'
-          },
-        },
-        galleryImages: {},
-        challenges: 'Building an event-driven backtester, aligning option chain dates, and integrating macro filters.',
-        learnings: 'Deepened understanding of derivatives greeks, macro-volatility interplay, and options structuring.',
-      },
-      qrtDataChallenge: {
-        title: 'QRT Data Challenge: Liquid Asset Reconstruction',
-        description: 'Data science competition solving time series reconstruction with ML and feature engineering.',
-        imageAltText: 'Liquid asset heatmap and reconstructed curves',
-        categoryText: 'Machine Learning / Quant Research',
-        dateText: 'August 2025',
-        detailedDescription: `Participating in QRT's financial data competition to reconstruct missing liquid asset performance. Currently applying XGBoost and LightGBM with temporal features, volatility regimes, and anomaly detection logic. Exploring CNN + MLP hybrid models and feature selection to optimize RMSE. Ongoing experiment tracking and pipeline tuning in Python.`,
-        keyFeatures: {
-          timeSeriesML: {
-            title: 'Time-Series Forecasting',
-            description: 'Applies temporal machine learning to reconstruct missing asset returns.'
-          },
-          featureEngineering: {
-            title: 'Feature Engineering',
-            description: 'Builds volatility clusters, lag windows, macro regimes for predictive power.'
-          },
-          ensembleModels: {
-            title: 'XGBoost & LightGBM',
-            description: 'Runs boosting trees with cross-validation to minimize error.'
-          },
-          hybridDeepLearning: {
-            title: 'CNN + MLP Prototype',
-            description: 'Experimental convolutional and dense neural net for signal refinement.'
-          },
-        },
-        galleryImages: {},
-        challenges: 'Tuning RMSE under data gaps, avoiding leakage, and aligning features to macro shifts.',
-        learnings: 'Improved financial ML modeling, validation discipline, and experiment management.',
-      },
-      embeddedAmplifier: {
-        title: 'Automatic Volume Control for Audio Amplifier',
-        description: 'Engineered and integrated a closed-loop audio amplifier using analog circuitry and real-time Python feedback.',
-        imageAltText: 'Block diagram of audio amplifier with microcontroller',
-        categoryText: 'Embedded Systems',
-        dateText: 'May 2025',
-        detailedDescription: `Designed and built a closed-loop audio amplifier system (THAT2180C VCA, LM380N PA, CA3140 VU Meter) on STM32 using MicroPython. Calibrated subsystem gains and offsets, characterized PA response from 100Hz to 50kHz, and implemented a control algorithm in Python with Jupyter+ipywidgets to maintain real-time loudness stability using RMS feedback. System reduces clipping and auto-adjusts volume.`,
-        keyFeatures: {
-          analogDigitalIntegration: {
-            title: 'Analog + Digital Integration',
-            description: 'Combined analog audio electronics with STM32 feedback loop using MicroPython.'
-          },
-          realTimeVolumeControl: {
-            title: 'Real-Time Volume Control',
-            description: 'Maintains consistent RMS output using step-up/down logic and VU feedback.'
-          },
-          frequencyResponseTuning: {
-            title: 'PA Frequency Characterization',
-            description: 'Measured and tuned amplifier response from 100Hz to 50kHz.'
-          },
-          autoClippingProtection: {
-            title: 'Clipping Protection',
-            description: 'System detects saturation and reduces gain to prevent distortion.'
-          },
-        },
-        galleryImages: {},
-        challenges: 'Tuning feedback loop timing, analog signal noise, and VU accuracy under dynamic load.',
-        learnings: 'Gained hands-on experience in embedded systems, control theory, audio electronics, and microcontroller firmware.',
-      },
-      ibkrPowerBIDashboard: {
-        title: '[Inactive] IBKR Power BI Dashboard',
-        description: '[To be resumed] Live portfolio tracker integrating Python, Supabase, and Power BI for FX and equities.',
-        imageAltText: 'IBKR dashboard preview',
-        categoryText: 'WIP / On Hold',
-        dateText: 'Paused',
-        detailedDescription: 'This project is paused. Intended to visualize live portfolio holdings and performance using IBKR API + Power BI with SQL integration.',
-        keyFeatures: {},
-        galleryImages: {},
-        challenges: '',
-        learnings: '',
-      },
-      autoApplyAgent: {
-        title: '[Inactive] AutoApply Agent',
-        description: '[To be resumed] AI agent that auto-fills internship/job applications using resume parsing and GPT.',
-        imageAltText: 'Agent UI preview',
-        categoryText: 'WIP / On Hold',
-        dateText: 'Paused',
-        detailedDescription: 'This project is paused. Goal was to create a browser automation + GPT-powered agent to select resumes, answer questions, and track application progress across portals like Workday and Greenhouse.',
-        keyFeatures: {},
-        galleryImages: {},
-        challenges: '',
-        learnings: '',
-      },
+      // You can add more specific messages as needed
     },
   },
 } as const;
 
-export const languages = {
-  en: { name: 'English', flag: 'us' },
-} as const;
-
-export type LanguageCode = keyof typeof languages;
-export const defaultLanguage: LanguageCode = 'en';
-
 export const getLanguageName = (lang: LanguageCode) => languages[lang];
+
+export type UISchema = typeof ui;
+export type FeatureType = keyof UISchema[typeof defaultLanguage];
+
+export function useTranslations<F extends FeatureType>(
+  lang: LanguageCode | undefined,
+  feature: F
+) {
+  const currentLanguage = lang || defaultLanguage;
+
+  // Get the available keys for this feature from the default language
+  type AvailableKeys = keyof UISchema[typeof defaultLanguage][F];
+
+  return function t(key: AvailableKeys): string {
+    // Safely access the translation, falling back to default language if necessary
+    const featureTranslations = ui[currentLanguage]?.[feature];
+    if (featureTranslations && key in featureTranslations) {
+      return featureTranslations[
+        key as keyof typeof featureTranslations
+      ] as string;
+    }
+
+    // Fallback to default language
+    return ui[defaultLanguage][feature][
+      key as keyof (typeof ui)[typeof defaultLanguage][F]
+    ] as string;
+  };
+}

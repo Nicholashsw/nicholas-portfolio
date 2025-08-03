@@ -10,192 +10,34 @@ import type {
 
 const projectsListUnsorted: Array<ProjectData> = [
   {
-    id: 'vrpStrategy',
-    slug: 'vrp-strategy',
-    imageUrl: placeholderImage,
-    tags: ['FX', 'Options', 'Backtesting'],
-    category: 'Quantitative Research',
-    date: '2025-06-01',
-    keyFeatures: [
-      { id: 'multiAssetBacktesting' },
-      { id: 'optionsSpread20_10Delta' },
-      { id: 'macroTrendFilter200DMA' },
-      { id: 'volatilityRiskPremiumCapture' },
+    id: 'sampleProject', // Unique identifier for translations
+    slug: 'sample-project', // Used in the URL
+    imageUrl: placeholderImage, // Use imported ImageMetadata
+    // projectUrl: '#', // Optional: Link to the live project
+    // codeUrl: '#', // Optional: Link to the source code
+    tags: ['Astro', 'TypeScript', 'Template'], // Generic tags
+    category: 'Web Application', // Generic category
+    date: '2025-01-01', // Generic date
+    galleryImages: [
+      // Optional: Gallery images for the project
+      // {
+      //   id: 'sampleGalleryImage1',
+      //   src: placeholderImage, // Placeholder, needs ImageMetadata
+      // },
     ],
-    galleryImages: [],
-  },
-  {
-    id: 'qrtDataChallenge',
-    slug: 'qrt-data-challenge',
-    imageUrl: placeholderImage,
-    tags: ['Machine Learning', 'XGBoost', 'Finance'],
-    category: 'Machine Learning / Quant Research',
-    date: '2025-08-01',
     keyFeatures: [
-      { id: 'timeSeriesML' },
-      { id: 'featureEngineering' },
-      { id: 'ensembleModels' },
-      { id: 'hybridDeepLearning' },
+      // Key features (IDs for translation)
+      { id: 'responsiveDesign' },
+      { id: 'contentManagement' },
     ],
-    galleryImages: [],
-  },
-  {
-    id: 'embeddedAmplifier',
-    slug: 'embedded-amplifier',
-    imageUrl: placeholderImage,
-    tags: ['STM32', 'Python', 'Electronics'],
-    category: 'Embedded Systems',
-    date: '2025-05-01',
-    keyFeatures: [
-      { id: 'analogDigitalIntegration' },
-      { id: 'realTimeVolumeControl' },
-      { id: 'frequencyResponseTuning' },
-      { id: 'autoClippingProtection' },
+    technologiesUsed: [
+      // Technologies used (IDs for display)
+      { id: 'astro', name: 'Astro' },
+      { id: 'typescript', name: 'TypeScript' },
+      { id: 'tailwindcss', name: 'TailwindCSS' },
     ],
-    galleryImages: [],
-  },
-  {
-    id: 'ibkrPowerBIDashboard',
-    slug: 'ibkr-dashboard',
-    imageUrl: placeholderImage,
-    tags: ['Power BI', 'IBKR', 'SQL'],
-    category: 'WIP / On Hold',
-    date: '2025-04-01',
-    keyFeatures: [],
-    galleryImages: [],
-  },
-  {
-    id: 'autoApplyAgent',
-    slug: 'auto-apply-agent',
-    imageUrl: placeholderImage,
-    tags: ['GPT', 'Automation', 'Job Applications'],
-    category: 'WIP / On Hold',
-    date: '2025-04-01',
-    keyFeatures: [],
-    galleryImages: [],
   },
 ];
-
-
-export const projectsContent = {
-  vrpStrategy: {
-    title: 'Volatility Risk Premium (VRP) Strategy [WIP]',
-    description: 'Multi-asset strategy using spot, futures, and options spreads to capture the volatility risk premium.',
-    imageAltText: 'Chart showcasing volatility capture from FX options',
-    categoryText: 'Quantitative Research',
-    dateText: 'June 2025',
-    detailedDescription: `A multi-market strategy capturing the volatility risk premium across Spot FX, Futures (6E, 6J), and Options on FX Futures using 20–10 delta bull/bear spreads. Entry is trend-filtered via the 200-day moving average, and coded in Python using historical data fetched from IBKR. Work-in-progress extensions include macro event triggers and multi-asset overlays (Gold, CHF, VIX).`,
-    keyFeatures: {
-      multiAssetBacktesting: {
-        title: 'Multi-Asset Backtesting',
-        description: 'Runs on Spot FX, Futures, and Options instruments with synchronized logic.'
-      },
-      optionsSpread20_10Delta: {
-        title: '20–10 Delta Option Spread',
-        description: 'Implements bull put and bear call spreads based on option delta slices.'
-      },
-      macroTrendFilter200DMA: {
-        title: '200-Day Trend Filter',
-        description: 'Determines bullish or bearish macro regime for strategy entry.'
-      },
-      volatilityRiskPremiumCapture: {
-        title: 'Volatility Risk Premium Alpha',
-        description: 'Harvests premium from option sellers by maintaining defined risk.'
-      },
-    },
-    galleryImages: {},
-    challenges: 'Building an event-driven backtester, aligning option chain dates, and integrating macro filters.',
-    learnings: 'Deepened understanding of derivatives greeks, macro-volatility interplay, and options structuring.',
-  },
-
-  qrtDataChallenge: {
-    title: 'QRT Data Challenge: Liquid Asset Reconstruction',
-    description: 'Data science competition solving time series reconstruction with ML and feature engineering.',
-    imageAltText: 'Liquid asset heatmap and reconstructed curves',
-    categoryText: 'Machine Learning / Quant Research',
-    dateText: 'August 2025',
-    detailedDescription: `Participating in QRT's financial data competition to reconstruct missing liquid asset performance. Currently applying XGBoost and LightGBM with temporal features, volatility regimes, and anomaly detection logic. Exploring CNN + MLP hybrid models and feature selection to optimize RMSE. Ongoing experiment tracking and pipeline tuning in Python.`,
-    keyFeatures: {
-      timeSeriesML: {
-        title: 'Time-Series Forecasting',
-        description: 'Applies temporal machine learning to reconstruct missing asset returns.'
-      },
-      featureEngineering: {
-        title: 'Feature Engineering',
-        description: 'Builds volatility clusters, lag windows, macro regimes for predictive power.'
-      },
-      ensembleModels: {
-        title: 'XGBoost & LightGBM',
-        description: 'Runs boosting trees with cross-validation to minimize error.'
-      },
-      hybridDeepLearning: {
-        title: 'CNN + MLP Prototype',
-        description: 'Experimental convolutional and dense neural net for signal refinement.'
-      },
-    },
-    galleryImages: {},
-    challenges: 'Tuning RMSE under data gaps, avoiding leakage, and aligning features to macro shifts.',
-    learnings: 'Improved financial ML modeling, validation discipline, and experiment management.',
-  },
-
-  embeddedAmplifier: {
-    title: 'Automatic Volume Control for Audio Amplifier',
-    description: 'Engineered and integrated a closed-loop audio amplifier using analog circuitry and real-time Python feedback.',
-    imageAltText: 'Block diagram of audio amplifier with microcontroller',
-    categoryText: 'Embedded Systems',
-    dateText: 'May 2025',
-    detailedDescription: `Designed and built a closed-loop audio amplifier system (THAT2180C VCA, LM380N PA, CA3140 VU Meter) on STM32 using MicroPython. Calibrated subsystem gains and offsets, characterized PA response from 100Hz to 50kHz, and implemented a control algorithm in Python with Jupyter+ipywidgets to maintain real-time loudness stability using RMS feedback. System reduces clipping and auto-adjusts volume.`,
-    keyFeatures: {
-      analogDigitalIntegration: {
-        title: 'Analog + Digital Integration',
-        description: 'Combined analog audio electronics with STM32 feedback loop using MicroPython.'
-      },
-      realTimeVolumeControl: {
-        title: 'Real-Time Volume Control',
-        description: 'Maintains consistent RMS output using step-up/down logic and VU feedback.'
-      },
-      frequencyResponseTuning: {
-        title: 'PA Frequency Characterization',
-        description: 'Measured and tuned amplifier response from 100Hz to 50kHz.'
-      },
-      autoClippingProtection: {
-        title: 'Clipping Protection',
-        description: 'System detects saturation and reduces gain to prevent distortion.'
-      },
-    },
-    galleryImages: {},
-    challenges: 'Tuning feedback loop timing, analog signal noise, and VU accuracy under dynamic load.',
-    learnings: 'Gained hands-on experience in embedded systems, control theory, audio electronics, and microcontroller firmware.',
-  },
-
-  ibkrPowerBIDashboard: {
-    title: '[Inactive] IBKR Power BI Dashboard',
-    description: '[To be resumed] Live portfolio tracker integrating Python, Supabase, and Power BI for FX and equities.',
-    imageAltText: 'IBKR dashboard preview',
-    categoryText: 'WIP / On Hold',
-    dateText: 'Paused',
-    detailedDescription: 'This project is paused. Intended to visualize live portfolio holdings and performance using IBKR API + Power BI with SQL integration.',
-    keyFeatures: {},
-    galleryImages: {},
-    challenges: '',
-    learnings: '',
-  },
-
-  autoApplyAgent: {
-    title: '[Inactive] AutoApply Agent',
-    description: '[To be resumed] AI agent that auto-fills internship/job applications using resume parsing and GPT.',
-    imageAltText: 'Agent UI preview',
-    categoryText: 'WIP / On Hold',
-    dateText: 'Paused',
-    detailedDescription: 'This project is paused. Goal was to create a browser automation + GPT-powered agent to select resumes, answer questions, and track application progress across portals like Workday and Greenhouse.',
-    keyFeatures: {},
-    galleryImages: {},
-    challenges: '',
-    learnings: '',
-  },
-}
-
-
 
 export const projectsList = [...projectsListUnsorted].sort((a, b) => {
   // Sort by date, most recent first. Ensure 'date' is a valid date string.
@@ -209,15 +51,13 @@ function translateProject(
   project: ProjectData,
   lang: LanguageCode
 ): TranslatedProject {
-  // Remove problematic type assertion and use string for key
-  const currentProjectId = project.id as string;
+  type ProjectIdKey =
+    keyof (typeof ui)[typeof defaultLanguage]['projectsContent'];
+  const currentProjectId = project.id as ProjectIdKey;
 
-  // Use 'as any' for ui to bypass index type errors
-  const langUi = ui as any;
-  const projectContentSource =
-    lang in langUi && langUi[lang]?.projectsContent?.[currentProjectId]
-      ? langUi[lang].projectsContent
-      : langUi[defaultLanguage].projectsContent;
+  const projectContentSource = ui[lang]?.projectsContent?.[currentProjectId]
+    ? ui[lang].projectsContent
+    : ui[defaultLanguage].projectsContent;
 
   const i18nData = projectContentSource[currentProjectId];
 
@@ -370,10 +210,35 @@ export const skillsList: Array<SkillData> = [
 export function getTranslatedSkills(
   lang: LanguageCode | undefined
 ): Array<TranslatedSkill> {
-  // Fallback: just return the skillsList with id as title/description
-  return skillsList.map((skill) => ({
-    ...skill,
-    title: skill.id,
-    description: 'Description missing for this skill.',
-  }));
+  const currentLang = lang ?? defaultLanguage;
+
+  return skillsList.map((skill) => {
+    type SkillIdKey =
+      keyof (typeof ui)[typeof defaultLanguage]['skillsContent'];
+    const currentSkillId = skill.id as SkillIdKey;
+
+    const skillContentSource = ui[currentLang]?.skillsContent?.[currentSkillId]
+      ? ui[currentLang].skillsContent
+      : ui[defaultLanguage].skillsContent;
+
+    const skillTranslations = skillContentSource[currentSkillId];
+
+    if (!skillTranslations) {
+      // Fallback if translation for the skill ID is missing
+      console.warn(
+        `Translation missing for skill ID: ${skill.id} in language: ${lang}. Using default values.`
+      );
+      return {
+        ...skill,
+        title: skill.id, // Fallback title
+        description: 'Description missing for this skill.', // Fallback description
+      };
+    }
+
+    return {
+      ...skill, // This includes id and iconName
+      title: skillTranslations.title,
+      description: skillTranslations.description,
+    };
+  });
 }
