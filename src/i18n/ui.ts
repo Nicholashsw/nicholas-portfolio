@@ -146,6 +146,49 @@ export const ui = {
       invalid_string_uuid: 'Invalid UUID.',
       // You can add more specific messages as needed
     },
+    skillsContent: {
+      frontendDevelopment: {
+        title: 'Frontend Development',
+        description: 'Building interactive and performant user interfaces.',
+      },
+      backendDevelopment: {
+        title: 'Backend Development',
+        description: 'Developing robust server logic and APIs.',
+      },
+      uiUxDesign: {
+        title: 'UI/UX Design',
+        description: 'Designing intuitive and aesthetic user experiences.',
+      },
+      devOps: {
+        title: 'DevOps',
+        description: 'Automating development and deployment workflows.',
+      },
+    },
+    projectsContent: {
+      sampleProject: {
+        title: 'Sample Project',
+        description: 'This is a sample project for the template.',
+        imageAltText: 'Placeholder image for the sample project',
+        categoryText: 'Web Application',
+        dateText: 'January 2025',
+        detailedDescription: 'A more detailed description of this sample project, showing how to structure content for the project detail page.',
+        keyFeatures: {
+          responsiveDesign: {
+            title: 'Responsive Design',
+            description: 'The project adapts to all screen sizes.',
+          },
+          contentManagement: {
+            title: 'Easy Content Management',
+            description: 'Allows easy content management via Markdown files or a CMS.',
+          },
+        },
+        galleryImages: {
+          // Add gallery images if needed
+        },
+        challenges: 'Description of challenges faced during this sample project.',
+        learnings: 'Description of learnings from this sample project.',
+      },
+    },
   },
 } as const;
 
